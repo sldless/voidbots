@@ -3,7 +3,7 @@
 `pip install voidbots`
 
 ## Documentation
-To see the Doc [click here](https://docs.voidbots.net/).
+To see the voidbots doc [click here](https://docs.voidbots.net/).
 
 Before using this module, Please view [Ratelimits](https://docs.voidbots.net/#/ratelimits) and [Caching](https://docs.voidbots.net/#/caching).
 
