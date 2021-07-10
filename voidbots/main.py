@@ -7,13 +7,13 @@ class VoidClient:
         self.base_url = 'https://api.voidbots.net'
         self.apikey = apikey
         self.bot = bot
-        self._autopost = autopost
+        self.__autopost__ = autopost
         self.module_closed = False
-        self.task_auto_post = Task
+        self.__task_auto_post__ = Task
         self.loop = kwargs.get('loop', bot.loop)
         
-        if self._autopost:
-            self.task_auto_post = self.loop.create_task(self.__auto_post__())
+        if self.__autopost__:
+            self.__task_auto_post__ = self.loop.create_task(self.__auto_post__())
         
     async def __auto_post__(self):
         await self.bot.wait_until_ready()
@@ -95,6 +95,6 @@ class VoidClient:
         if self.module_closed == True:
             return
         else:
-            if self._autopost:
-                self.task_auto_post.cancel()
+            if self.___autopost__:
+                self.__task_auto_post__.cancel()
             self.module_closed = True
