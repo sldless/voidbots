@@ -15,7 +15,6 @@ class VoidClient:
         if self._autopost:
             self.task_auto_post = self.loop.create_task(self.__auto_post__())
         
-        
     async def __auto_post__(self):
         await self.bot.wait_until_ready()
         while not self.bot.is_closed():
@@ -89,7 +88,10 @@ class VoidClient:
                 async with session.get(f'{self.base_url}/pack/info/{pack_id}', headers={'Authorization': self.apikey}) as req:
                     req = await req.json()
         return {'endpoint': f'{self.base_url}/pack/info', 'rep': html.unescape(req)}
-    async def close(self):
+    
+    async def close(self, bot_close=False):
+        if bot_close == True:
+            await self.bot.close()
         if self.module_closed == True:
             return
         else:
