@@ -13,7 +13,7 @@ import voidbots as vd
 from discord.ext.commands import Bot
 
 bot = Bot(command_prefix='vd!')
-
+Void = vd.VoidClient(bot, apikey='Your api key')
 @bot.event
 async def on_ready()
     print(f'{bot.user.name} is online!')
@@ -26,14 +26,14 @@ bot.run('Your bot token')
 
 ## Functions
 ```
-Void = vd.VoidClient(bot, apikey='Your api key')
-await Void.get_voteinfo('Bot ID','A user id')
-await Void.get_botinfo('Bot ID')
-await Void.postStats(bot.user.id, len(bot.guilds), bot.shard_count or 0)
-await Void.get_analytics(bot.user.id)
-await Void.get_reviews(bot.user.id)
-await Void.widget(bot.user.id, theme='dark or light')
-await Void.get_userinfo("User ID")
-await Void.get_pack("Pack ID")
-await Void.close() #This has a bot_close arg if that is set to true it will close your bot.
+<VoidBots Module>.VoidClient(bot, apikey='Your api key')
+await <VoidClient>.get_voteinfo('Bot ID','A user id')
+await <VoidClient>.get_botinfo('Bot ID')
+await <VoidClient>.postStats(bot.user.id, len(bot.guilds), bot.shard_count or 0)
+await <VoidClient>.get_analytics(bot.user.id)
+await <VoidClient>.get_reviews(bot.user.id)
+await <VoidClient>.widget(bot.user.id, theme='dark or light')
+await <VoidClient>.get_userinfo("User ID")
+await <VoidClient>.get_pack("Pack ID")
+await <VoidClient>.close() #This has a bot_close arg if that is set to true it will close your bot.
 ```
