@@ -40,7 +40,7 @@ class VoidClient:
     async def postStats(self, bot_id, server_count: int, shard_count: int=None):
         async with aiohttp.ClientSession() as session:
             async with session.get(f'{self.base_url}/bot/stats/{bot_id}',
-                                   headers={'Authorization': self.apikey}, json={'server_count': server_count, 'shard_count': shard_count or 0}) as req:
+                                   headers={'Authorization': self.apikey, 'content-type': 'application/json'}, json={'server_count': server_count, 'shard_count': shard_count or 0}) as req:
                 req = await req.json()
         return {'endpoint': f'{self.base_url}/bot/analytics', 'rep': html.unescape(req)}
     
